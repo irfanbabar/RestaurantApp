@@ -9,7 +9,9 @@ import { Recipe } from "../recipe.model";
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[] = [
     new Recipe('Spaghetti', 'Very Tasty Reman',
-    'http://www.wallpaperawesome.com/wallpapers-awesome/wallpapers-food-drinks-cocktails-cake-meat-pasta-pizza-awesome/wallpaper-spaghetti-italian-pasta.jpg')
+    'http://www.wallpaperawesome.com/wallpapers-awesome/wallpapers-food-drinks-cocktails-cake-meat-pasta-pizza-awesome/wallpaper-spaghetti-italian-pasta.jpg'),
+    new Recipe('Chicken Bread', 'This is one hell of Spicy',
+    '../../../assets/chicken-pieces.jpg')
   ];
   constructor() { }
 
