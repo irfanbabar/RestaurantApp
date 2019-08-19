@@ -15,8 +15,7 @@
 <div class="row">
   <div class="col-12">
     <div
-      class="btn-group"
-      ngDropdown>
+      class="btn-group">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" ngDropdown>
           <button
@@ -25,11 +24,10 @@
             Manage Recipe <span class="caret"></span>
           </button>
           <div class="dropdown-menu">
-            <a class='dropdown-item'
-               style='cursor: pointer;'
-               (click)="addToShoppingList()">To Shopping List</a>
-            <a class='dropdown-item' style='cursor: pointer;'>Edit Recipe</a>
-            <a class='dropdown-item' style='cursor: pointer;'>Delete Recipe</a>
+            <a class='dropdown-item cursor-pointer'
+               routerLink='/shopping-list'>To Shopping List</a>
+            <a class='dropdown-item cursor-pointer'>Edit Recipe</a>
+            <a class='dropdown-item cursor-pointer'>Delete Recipe</a>
           </div>
         </li>
       </ul>

@@ -8,7 +8,7 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 export class RecipeService {
   selectedRecipe = new EventEmitter<Recipe>();
   private recipes: Recipe[] = [
-    new Recipe(
+    new Recipe(1,
       'Spaghetti',
       'Very Tasty Reman',
       '../../../assets/spaghetti-dish.jpg',
@@ -17,7 +17,7 @@ export class RecipeService {
         new Ingredient('chicken', 2)
       ]
     ),
-    new Recipe(
+    new Recipe(2,
       'Chicken Bread',
       'This is one hell of Spicy',
       '../../../assets/chicken-pieces.jpg',
@@ -36,6 +36,12 @@ export class RecipeService {
     // this.recipes will point to actual array, so if we change something it will effect to actual array
     // So we will create a copy of it by using splice()
     return this.recipes.slice();
+  }
+
+  getRequiredRecipe(id: number) {
+    return this.recipes.find(
+      (data) => data.id === id
+    );
   }
 
   addIngredientToShoppingList(ingredients: Ingredient[]) {

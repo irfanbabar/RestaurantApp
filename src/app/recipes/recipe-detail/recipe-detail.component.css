@@ -1,3 +1,6 @@
 .open .dropdown-menu{
   display: block;
 }
+.dropdown-menu {
+  position: absolute;
+}
