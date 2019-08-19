@@ -23,7 +23,7 @@ export class ShoppingListService {
                           return this.ingredients.filter( (obj) => {
                                     return obj.name === ing.name && obj.amount === ing.amount
                                   })
-                        }).flat();
+                        });
  
     if (already_added.length == 0) {
       this.ingredients.push(...ingredients);
