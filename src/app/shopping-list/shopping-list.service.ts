@@ -1,5 +1,5 @@
 import { Ingredient } from "../shared/ingredient.model";
-import { EventEmitter } from '@angular/core';
+import { Subject } from "rxjs";
 
 export class ShoppingListService {
   private ingredients: Ingredient[] = [
@@ -7,7 +7,7 @@ export class ShoppingListService {
     new Ingredient('Tomatoes', 10)
   ];
 
-  ingredientChanged = new EventEmitter<Ingredient[]>();
+  ingredientChanged = new Subject<Ingredient[]>();
 
   getIngredients(): Ingredient[] {
     return this.ingredients.slice();
@@ -15,7 +15,7 @@ export class ShoppingListService {
 
   addIngredient(ingredient: Ingredient): void{
     this.ingredients.push(ingredient);
-    this.ingredientChanged.emit(this.ingredients.slice());
+    this.ingredientChanged.next(this.ingredients.slice());
   }
 
   addIngredients(ingredients: Ingredient[]) {
@@ -27,7 +27,7 @@ export class ShoppingListService {
  
     if (already_added.length == 0) {
       this.ingredients.push(...ingredients);
-      this.ingredientChanged.emit(this.ingredients.slice());
+      this.ingredientChanged.next(this.ingredients.slice());
       alert('Added in your shopping list');
     }else {
       alert('Already added, wont add it again')
