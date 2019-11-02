@@ -37,4 +37,14 @@ export class ShoppingListService {
       alert('Already added, wont add it again')
     }
   }
+
+  updateIngredient(index: number, newIngredient: Ingredient) {
+    this.ingredients[index] = newIngredient;
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
+
+  deleteIngredient(index: number) {
+    this.ingredients.splice(index, 1);
+    this.ingredientChanged.next(this.ingredients.slice());
+  }
 }
