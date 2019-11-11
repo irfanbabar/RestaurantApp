@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
 import { RecipeService } from '../recipe.service';
+import { Recipe } from '../recipe.model';
 
 @Component({
   selector: 'app-recipe-edit',
@@ -28,7 +29,19 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.recipeForm);
+    let randomId = Math.floor(1000 + Math.random() * 9000);
+    let recipe = new Recipe(
+      randomId,
+      this.recipeForm.value.name,
+      this.recipeForm.value.description,
+      this.recipeForm.value.imagePath,
+      this.recipeForm.value.ingredients
+    );
+    if(this.editMode) {
+      this.recipeService.updateRecipe(this.id, recipe);
+    }else {
+      this.recipeService.addNewRecipe(recipe);
+    }
   }
 
   getIngredientControlArray() {
